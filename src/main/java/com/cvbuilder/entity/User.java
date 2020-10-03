@@ -1,8 +1,10 @@
 package com.cvbuilder.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
-@Table(name="user")
 @Entity
 public class User {
 
@@ -11,34 +13,142 @@ public class User {
     private Long id;
 
     @Basic
-    @Column(length = 30, nullable = false)
-    private String nom;
+    @Column(length = 80, nullable = false)
+    private String last_name;
 
     @Basic
-    @Column(length = 30, nullable = false)
-    private String prenom;
+    @Column(length = 80, nullable = false)
+    private String first_name;
 
-    public long getId() {
+    @Basic
+    @Column(length = 200, nullable = false)
+    private String email;
+
+    @Basic
+    @Column(columnDefinition = "TEXT", nullable = false)
+    private String password;
+
+    @Temporal(TemporalType.DATE)
+    @Column(nullable = true)
+    private Calendar birth;
+
+    @Basic
+    @Column(nullable = false)
+    private int privileges;
+
+    @Basic
+    @Column(columnDefinition = "TEXT", nullable = true)
+    private String address;
+
+    @Basic
+    @Column(length = 12, nullable = true)
+    private String phone;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public String getNom() {
-        return nom;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public String getPrenom() {
-        return prenom;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Calendar getBirth() {
+        return birth;
+    }
+
+    public void setBirth(Calendar birth) {
+        this.birth = birth;
+    }
+
+    public int getPrivileges() {
+        return privileges;
+    }
+
+    public void setPrivileges(int privileges) {
+        this.privileges = privileges;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public List<Template> getTemplates() {
+        EntityManager entityManager = DB.getEntityManager();
+        List<Template> templates = entityManager
+                .createQuery("select t from Template t where creator = :user", Template.class)
+                .setParameter("user", this)
+                .getResultList();
+        entityManager.close();
+        return templates;
+    }
+
+    public List<Job> getJobs() {
+        EntityManager entityManager = DB.getEntityManager();
+        List<Job> jobs = entityManager
+                .createQuery("select j from Job j where user = :user", Job.class)
+                .setParameter("user", this)
+                .getResultList();
+        entityManager.close();
+        return jobs;
+    }
+
+    public List<Experience> getExperiences() {
+        EntityManager entityManager = DB.getEntityManager();
+        List<Experience> experiences = entityManager
+                .createQuery("select e from Experience e where user = :user", Experience.class)
+                .setParameter("user", this)
+                .getResultList();
+        entityManager.close();
+        return experiences;
+    }
+
+    public List<Skill> getSkills() {
+        EntityManager entityManager = DB.getEntityManager();
+        List<Skill> skills = entityManager
+                .createQuery("select s from Skill s where user = :user", Skill.class)
+                .setParameter("user", this)
+                .getResultList();
+        entityManager.close();
+        return skills;
     }
 }
