@@ -21,7 +21,7 @@ public class User {
     private String first_name;
 
     @Basic
-    @Column(length = 200, nullable = false)
+    @Column(length = 200, nullable = false, unique = true)
     private String email;
 
     @Basic
@@ -34,14 +34,14 @@ public class User {
 
     @Basic
     @Column(nullable = false)
-    private int privileges;
+    private int privileges = 2;
 
     @Basic
     @Column(columnDefinition = "TEXT", nullable = true)
     private String address;
 
     @Basic
-    @Column(length = 12, nullable = true)
+    @Column(length = 12, nullable = true, unique = true)
     private String phone;
 
     public Long getId() {
@@ -110,6 +110,16 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public static User getUserByMail(String email) {
+        EntityManager entityManager = DB.getEntityManager();
+        User user = entityManager
+                .createQuery("select u from User u where email = :email", User.class)
+                .setParameter("email", email)
+                .getSingleResult();
+        entityManager.close();
+        return user;
     }
 
     public List<Template> getTemplates() {
