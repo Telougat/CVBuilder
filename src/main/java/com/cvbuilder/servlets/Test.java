@@ -14,6 +14,6 @@ public class Test extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/view/infostest.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/view/infos_experience.jsp").forward(request, response);
     }
 }
