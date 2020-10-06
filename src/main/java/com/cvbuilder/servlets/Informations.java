@@ -1,8 +1,11 @@
 package com.cvbuilder.servlets;
 
 import com.cvbuilder.Helpers;
+import com.cvbuilder.entity.DB;
 import com.cvbuilder.entity.User;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,27 +13,45 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Date;
 
 @WebServlet(name = "Informations" , urlPatterns = {"/informations"})
 public class Informations extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         if (request.getParameter("last_name") != null && request.getParameter("first_name") != null && request.getParameter("email") != null) {
-            User newUser = new User();
-            newUser.setLast_name(request.getParameter("last_name"));
-            newUser.setFirst_name(request.getParameter("first_name"));
-            newUser.setEmail(request.getParameter("email"));
+
+            User user = (User) request.getSession().getAttribute("user");
+
+            EntityManager entityManager = DB.getEntityManager();
+            User updateUser = entityManager.find(User.class,user.getId());
+
+            updateUser.setLast_name(request.getParameter("last_name"));
+            updateUser.setFirst_name(request.getParameter("first_name"));
+            updateUser.setEmail(request.getParameter("email"));
+
             if(request.getParameter("address") != null)
             {
-                newUser.setAddress(request.getParameter("address"));
+                updateUser.setAddress(request.getParameter("address"));
             }
             if(request.getParameter("phone") != null)
             {
-                newUser.setPhone(request.getParameter("phone"));
+                updateUser.setPhone(request.getParameter("phone"));
             }
             if(request.getParameter("birth") != null)
             {
-                //newUser.setBirth(request.getParameter("birth"));
+                updateUser.setBirth(Helpers.parseDateFromParameter(request.getParameter("birth")));
             }
+
+            entityManager.getTransaction().begin();
+            try {
+                entityManager.getTransaction().commit();
+                request.getSession().setAttribute("user",updateUser);
+            } catch (RuntimeException e) {
+                entityManager.getTransaction().rollback();
+            }
+            entityManager.close();
 
         }
     }
@@ -39,6 +60,8 @@ public class Informations extends HttpServlet {
         HttpSession session = request.getSession();
         if (session.getAttribute("user") != null) {
             this.getServletContext().getRequestDispatcher("/view/informations.jsp").forward(request, response);
+            User user = (User) request.getSession().getAttribute("user");
+            request.setAttribute("nom", user.getLast_name());
         } else {
             response.sendRedirect(request.getContextPath() + "/login");
         }
