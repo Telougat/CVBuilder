@@ -22,6 +22,10 @@ public class Template {
     @Column
     private boolean isPublic = false;
 
+    @Basic
+    @Column
+    private float price = 0;
+
     @ManyToOne(optional = false)
     private User creator;
 
@@ -59,6 +63,14 @@ public class Template {
 
     public void setCreator(User creator) {
         this.creator = creator;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 
     public static List<Template> getPublicTemplates() {

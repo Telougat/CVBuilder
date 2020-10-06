@@ -1,7 +1,7 @@
 package com.cvbuilder.entity;
 
 import javax.persistence.*;
-import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 public class Experience {
@@ -24,10 +24,10 @@ public class Experience {
 
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
-    private Calendar start;
+    private Date start;
 
     @Temporal(TemporalType.DATE)
-    private Calendar end;
+    private Date end;
 
     @Basic
     @Column(columnDefinition = "TEXT")
@@ -64,19 +64,19 @@ public class Experience {
         this.city = city;
     }
 
-    public Calendar getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public void setStart(Calendar start) {
+    public void setStart(Date start) {
         this.start = start;
     }
 
-    public Calendar getEnd() {
+    public Date getEnd() {
         return end;
     }
 
-    public void setEnd(Calendar end) {
+    public void setEnd(Date end) {
         this.end = end;
     }
 
