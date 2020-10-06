@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
+import java.util.List;
 
 @WebServlet(name = "Experience", urlPatterns = {"/experience"})
 public class Experience extends HttpServlet {
@@ -29,10 +32,10 @@ public class Experience extends HttpServlet {
                 newExperience.setStart(Helpers.parseDateFromParameter(request.getParameter("start")));
                 newExperience.setUser(user);
 
-                if (request.getAttribute("end") != null)
+                if (request.getParameter("end") != null)
                     newExperience.setEnd(Helpers.parseDateFromParameter(request.getParameter("end")));
 
-                if (request.getAttribute("description") != null)
+                if (request.getParameter("description") != null)
                     newExperience.setDescription(request.getParameter("description"));
 
                 EntityManager entityManager = DB.getEntityManager();
@@ -65,9 +68,31 @@ public class Experience extends HttpServlet {
         }
     }
 
+
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        super.doDelete(request, response);
+        if (request.getSession().getAttribute("user") != null) {
+            User user = (User) request.getSession().getAttribute("user");
+            int id = Integer.parseInt(request.getParameter("id"));
+
+            EntityManager entityManager = DB.getEntityManager();
+            com.cvbuilder.entity.Experience exp = entityManager.find(com.cvbuilder.entity.Experience.class, id);
+
+
+            System.out.println(exp);
+        } else {
+            response.sendRedirect(request.getContextPath() + "/login");
+        }
+    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") != null) {
-            this.getServletContext().getRequestDispatcher("/view/experience.jsp").forward(request, response);
+            User user = (User) request.getSession().getAttribute("user");
+            List<com.cvbuilder.entity.Experience> experiences = null;
+            experiences = user.getExperiences();
+            request.setAttribute("experiences", experiences);
+            this.getServletContext().getRequestDispatcher("/view/infos_experience.jsp").forward(request, response);
         } else {
             response.sendRedirect(request.getContextPath() + "/login");
         }

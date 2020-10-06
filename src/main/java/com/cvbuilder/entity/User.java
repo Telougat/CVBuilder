@@ -3,6 +3,7 @@ package com.cvbuilder.entity;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -30,7 +31,7 @@ public class User {
 
     @Temporal(TemporalType.DATE)
     @Column(nullable = true)
-    private Calendar birth;
+    private Date birth;
 
     @Basic
     @Column(nullable = false)
@@ -80,11 +81,11 @@ public class User {
         this.password = password;
     }
 
-    public Calendar getBirth() {
+    public Date getBirth() {
         return birth;
     }
 
-    public void setBirth(Calendar birth) {
+    public void setBirth(Date birth) {
         this.birth = birth;
     }
 

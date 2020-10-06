@@ -12,3 +12,8 @@
 .shop {
     fill: #388CB2;
 }*/
+
+.item.active {
+    background-color: #4191b5;
+    color: white;
+}
