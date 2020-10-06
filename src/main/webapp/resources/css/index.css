@@ -17,3 +17,65 @@
     background-color: #4191b5;
     color: white;
 }
+
+/*.informations {
+    fill: #6FC8F1;
+}
+.createCV {
+    fill: #6FC8F1;
+}
+
+.gallery {
+    fill: #388CB2;
+}
+
+.shop {
+    fill: #388CB2;
+}*/
+
+.animHome {
+    -webkit-transition-property: background-color;
+    -webkit-transition-duration: 200ms;
+    -webkit-transition-timing-function: linear;
+}
+
+/*
+animation-duration: 25s;
+  animation-name: slidein;
+ */
+
+.animHome:hover {
+    background-color: white;
+}
+
+.animHome:hover p {
+    color: #6FC8F1;
+}
+
+.animHome:hover svg {
+    fill: #6FC8F1;
+    animation-duration: 2s;
+    animation-name: animationSVG;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animationSVG {
+    from {
+        transform: rotate(0deg);
+    }
+    33% {
+        transform: rotate(10deg);
+    }
+
+    66% {
+        transform: rotate(-10deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.button {
+    box-shadow: 0px 0px 50px white;
+}
