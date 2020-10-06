@@ -13,6 +13,26 @@
     fill: #388CB2;
 }*/
 
+.item.active {
+    background-color: #4191b5;
+    color: white;
+}
+
+/*.informations {
+    fill: #6FC8F1;
+}
+.createCV {
+    fill: #6FC8F1;
+}
+
+.gallery {
+    fill: #388CB2;
+}
+
+.shop {
+    fill: #388CB2;
+}*/
+
 .animHome {
     -webkit-transition-property: background-color;
     -webkit-transition-duration: 200ms;
