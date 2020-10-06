@@ -15,7 +15,7 @@
     <a href="${pageContext.request.contextPath}/">Créer un cv</a>
     <a href="${pageContext.request.contextPath}/">Ma galerie</a>
     <a href="${pageContext.request.contextPath}/Boutique" class="${pageContext.request.servletPath == "/view/marketplace.jsp" ? 'active' : '' }">Boutique</a>
-    <a href="#">Deconnexion</a>
+    <a href="${pageContext.request.contextPath}/logout">Deconnexion</a>
 </header>
 <div id="body">
     <jsp:doBody/>
