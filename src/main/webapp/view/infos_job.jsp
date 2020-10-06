@@ -5,24 +5,24 @@
 <p:infos>
     <jsp:body>
         <div class="px-4 py-4 lg:p-12">
-            <h1 class="text-xl text-blue-500">Études</h1>
+            <h1 class="text-xl text-blue-500">Expériences</h1>
             <hr class="border-b-4 border-blue-500 mt-2" />
             <div id="list">
                 <div class="mt-8 border-gray-600 border p-4 space-y-2 overflow-y-auto overflow-x-hidden" style="height: 14rem; max-height: 14rem;">
-                    <c:forEach items="${experiences}" var="experience">
-                        <div id="exp-${experience.getId()}" class="item cursor-pointer text-sm">
+                    <c:forEach items="${jobs}" var="job">
+                        <div id="exp-${job.getId()}" class="item cursor-pointer text-sm">
                             <div class="flex space-x-2">
-                                <p class="start">${experience.getStart()}</p>
-                                <c:if test="${experience.getEnd() != null}">
-                                    <p class="end"> - ${experience.getEnd()}</p>
+                                <p class="start">${job.getStart()}</p>
+                                <c:if test="${job.getEnd() != null}">
+                                    <p class="end"> - ${job.getEnd()}</p>
                                 </c:if>
-                                <p class="experience">${experience.getExperience()}</p>
+                                <p class="job">${job.getJob()}</p>
                             </div>
                             <div class="flex space-x-2">
-                                <p class="organization">${experience.getOrganization()}</p>
-                                <p class="city">${experience.getCity()}</p>
+                                <p class="company">${job.getCompany()}</p>
+                                <p class="city">${job.getCity()}</p>
                             </div>
-                            <p class="hidden description">${experience.getDescription()}</p>
+                            <p class="hidden description">${job.getDescription()}</p>
                         </div>
                     </c:forEach>
                 </div>
@@ -39,18 +39,18 @@
                             </div>
                             <p>Informations<br/>personnelles</p>
                         </a>
+                        <a href="${pageContext.request.contextPath}/experience">
+                            <div class="flex justify-center mb-2">
+                                <div class="h-5 w-5 rounded-full border border-blue-400"></div>
+                            </div>
+                            <p>Études</p>
+                        </a>
                         <div>
                             <div class="flex justify-center mb-2">
                                 <div class="h-5 w-5 rounded-full bg-blue-400 border border-blue-400"></div>
                             </div>
-                            <p class="font-semibold">Études</p>
+                            <p class="font-semibold">Expériences</p>
                         </div>
-                        <a href="${pageContext.request.contextPath}/job">
-                            <div class="flex justify-center mb-2">
-                                <div class="h-5 w-5 rounded-full border border-blue-400"></div>
-                            </div>
-                            <p>Expériences</p>
-                        </a>
                         <a href="${pageContext.request.contextPath}/competences">
                             <div class="flex justify-center mb-2">
                                 <div class="h-5 w-5 rounded-full border border-blue-400"></div>
@@ -60,7 +60,7 @@
                     </div>
                     <div>
                         <div class="flex justify-center mt-10">
-                            <a href="${pageContext.request.contextPath}/job" class="bg-blue-400 text-sm px-8 py-2 text-white rounded-lg font-semibold">Suivant</a>
+                            <a href="${pageContext.request.contextPath}/competences" class="bg-blue-400 text-sm px-8 py-2 text-white rounded-lg font-semibold">Suivant</a>
                         </div>
                     </div>
                 </div>
@@ -71,8 +71,8 @@
                     <input type="hidden" id="update" name="update" value="false">
 
                     <div class="mt-5">
-                        <label for="experience" class="text-xl text-blue-500">Intitulé :</label>
-                        <input class="w-full py-1 px-2 border border-gray-600 mt-3" type="text" id="experience" name="experience" required/>
+                        <label for="job" class="text-xl text-blue-500">Intitulé :</label>
+                        <input class="w-full py-1 px-2 border border-gray-600 mt-3" type="text" id="job" name="job" required/>
                     </div>
 
                     <div class="mt-5">
@@ -90,8 +90,8 @@
                     </div>
 
                     <div class="mt-5">
-                        <label for="organization" class="text-xl text-blue-500">Etablissement :</label>
-                        <input class="w-full py-1 px-2 border border-gray-600 mt-3" type="text" id="organization" name="organization" required/>
+                        <label for="company" class="text-xl text-blue-500">Entreprise :</label>
+                        <input class="w-full py-1 px-2 border border-gray-600 mt-3" type="text" id="company" name="company" required/>
                     </div>
 
                     <div class="mt-5">
@@ -123,21 +123,21 @@
                     if ($(".item.active").length <= 0) {
                         alert("Veuillez choisir un élement !");
                     } else {
-                        let exp = $(".item.active p.experience").text();
+                        let job = $(".item.active p.job").text();
                         let start = $(".item.active p.start").text();
                         let end = $(".item.active p.end").text();
-                        let organization = $(".item.active p.organization").text();
+                        let company = $(".item.active p.company").text();
                         let city = $(".item.active p.city").text();
                         let description = $(".item.active p.description").text();
 
                         let $inputs = $("form input");
 
                         $inputs.eq(0).val($(".item.active").attr('id').split('-')[1]);
-                        $inputs.eq(1).val(exp);
+                        $inputs.eq(1).val(job);
                         $inputs.eq(2).val(start);
                         if (end.length > 0)
                             $inputs.eq(3).val(end);
-                        $inputs.eq(4).val(organization);
+                        $inputs.eq(4).val(company);
                         $inputs.eq(5).val(city);
                         if (description > 0)
                             $("form textarea").val(description);
