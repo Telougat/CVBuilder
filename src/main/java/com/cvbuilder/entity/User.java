@@ -136,7 +136,7 @@ public class User {
     public List<Job> getJobs() {
         EntityManager entityManager = DB.getEntityManager();
         List<Job> jobs = entityManager
-                .createQuery("select j from Job j where user = :user", Job.class)
+                .createQuery("select j from Job j where user = :user order by j.start DESC", Job.class)
                 .setParameter("user", this)
                 .getResultList();
         entityManager.close();
@@ -146,7 +146,7 @@ public class User {
     public List<Experience> getExperiences() {
         EntityManager entityManager = DB.getEntityManager();
         List<Experience> experiences = entityManager
-                .createQuery("select e from Experience e where user = :user", Experience.class)
+                .createQuery("select e from Experience e where user = :user order by e.start DESC", Experience.class)
                 .setParameter("user", this)
                 .getResultList();
         entityManager.close();
