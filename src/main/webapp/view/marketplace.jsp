@@ -103,7 +103,7 @@
             </div>
             <div class="absolute place-self-center opacity-0 hover:opacity-100">
                 <div class="border border-solid border-2 border-white py-1 px-3 tracking-widest font-bold text-white">
-                    <a href="/Template?id=${templates.getId()}">Voir</a>
+                    <a href="${pageContext.request.contextPath}/template?id=${templates.getId()}">Voir</a>
                 </div>
             </div>
         </div>
