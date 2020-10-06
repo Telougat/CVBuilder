@@ -12,11 +12,11 @@
 <p:page>
     <jsp:body>
         <div class="relative">
-            <div class="flex flex-wrap justify-between items-center p-12 border-solid border-b-8 border-blue-600 lg:border-0 lg:p-0">
-                <a href="/" class="flex flex-wrap w-1/6 lg:w-1/12 lg:hidden">
+            <div class="flex flex-wrap justify-between items-center p-12 border-solid border-b-8 border-blue-600 lg:hidden">
+                <a href="/" class="flex flex-wrap w-1/6 lg:w-1/12">
                     <img class="w-full" src="${pageContext.request.contextPath}/resources/images/cv.svg" alt="CV">
                 </a>
-                <div class="flex flex-wrap h-full lg:absolute">
+                <div class="flex h-full">
                     <button class="pl-4 pr-5 pt-2 pb-2 border-solid border-4 border-blue-400 text-blue-400 text-3xl lg:text-xl">Déconnexion</button>
                 </div>
             </div>
@@ -25,6 +25,10 @@
                 <a href="/" class="lg:flex hidden absolute justify-center w-full h-full">
                     <img class="w-1/12" src="${pageContext.request.contextPath}/resources/images/cv.svg" alt="CV">
                 </a>
+                <div class="hidden lg:block absolute top-0 right-0">
+                    <button class="pl-4 pr-5 pt-2 pb-2 border-solid border-4 border-white text-white text-md mt-4 mr-4">Déconnexion</button>
+                </div>
+
 
                 <a href="#" class="flex flex-wrap w-full lg:w-1/2 bg-blue-300 text-6xl lg:text-3xl p-16 font-semibold text-center">
                     <div class="w-full">
