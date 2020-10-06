@@ -9,22 +9,31 @@
             <hr class="border-b-4 border-blue-500 mt-2" />
             <div class="flex mt-4">
                 <table class="w-full">
-                    <tr class="text-justify text-lg font-medium border-solid border-b border-gray-500">
-                        <th class="border-solid border-l border-gray-500 pl-4 pt-2 pb-3">Nom</th>
-                        <th class="border-solid border-l border-gray-500">Niveau</th>
-                        <th class="border-solid border-l border-gray-500">Description</th>
+                    <tr class="thBold text-justify justify-between text-lg border-solid border-b border-gray-500">
+                        <th class="font-medium border-solid border-l border-gray-500 pl-4 pt-2 pb-3">Nom</th>
+                        <th class="font-medium border-solid border-l border-gray-500 pl-4 pt-2 pb-3">Niveau</th>
+                        <th class="font-medium border-solid border-l border-gray-500 pl-4 pt-2 pb-3">Description</th>
                     </tr>
 
                     <tr class="border-solid border-l border-r border-b border-gray-500">
-                        <td>JavaScript</td>
-                        <td>8</td>
-                        <td>Langue JS natif</td>
+                        <td class="pt-3 pb-3 pr-3 pl-4">JavaScript</td>
+                        <td class="pt-3 pb-3 pr-3 pl-4">
+                            <section class="w-full">
+                                <progress value="8" max="10">Javascript</progress>
+                            </section>
+                        </td>
+                        <td class="pt-3 pb-3 pr-3 pl-4">Langue JS natif</td>
                     </tr>
                     <tr class="border-solid border-l border-r border-b border-gray-500">
-                        <td>Cobble</td>
-                        <td>2</td>
-                        <td>Langue bas niveau</td>
+                        <td class="pt-3 pb-3 pr-3 pl-4">Cobble</td>
+                        <td class="pt-3 pb-3 pr-3 pl-4">
+                            <section class="w-full">
+                                <progress value="2" max="10">Javascript</progress>
+                            </section>
+                        </td>
+                        <td class="pt-3 pb-3 pr-3 pl-4">Langue bas niveau</td>
                     </tr>
+
                 </table>
             </div>
 
