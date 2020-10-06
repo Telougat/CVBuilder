@@ -126,7 +126,7 @@
 
                         let $inputs = $("form input");
 
-                        $inputs.eq(0).val("true");
+                        $inputs.eq(0).val($(".item.active").attr('id').split('-')[1]);
                         $inputs.eq(1).val(exp);
                         $inputs.eq(2).val(start);
                         if (end.length > 0)
