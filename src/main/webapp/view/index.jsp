@@ -22,13 +22,13 @@
             </div>
             <div class="flex flex-wrap h-full relative">
 
-                <a href="/" class="flex hidden lg:block absolute justify-center w-full h-full">
+                <a href="/" class="lg:flex hidden absolute justify-center w-full h-full">
                     <img class="w-1/12" src="${pageContext.request.contextPath}/resources/images/cv.svg" alt="CV">
                 </a>
 
                 <a href="#" class="flex flex-wrap w-full lg:w-1/2 bg-blue-300 text-6xl lg:text-3xl p-16 font-semibold text-center">
                     <div class="w-full">
-                        <svg class="informations w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        <svg class="informations fill-current text-blue-200 w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><g><path d="M256.002,182.774c-12.718,0-21.761,5.37-21.761,13.283V303.73c0,6.782,9.044,13.565,21.761,13.565
                                             c12.152,0,22.043-6.783,22.043-13.565V196.057C278.045,188.144,268.154,182.774,256.002,182.774z"/><path d="M256.002,116.361c-13,0-23.174,9.326-23.174,20.065c0,10.739,10.174,20.348,23.174,20.348
                                             c12.718,0,22.892-9.609,22.892-20.348C278.894,125.688,268.719,116.361,256.002,116.361z"/><path d="M256,0C134.398,0,36,98.348,36,219.873c0,99.231,65.333,181.626,153.417,209.609l50.032,73.747
