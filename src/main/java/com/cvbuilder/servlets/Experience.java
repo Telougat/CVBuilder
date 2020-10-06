@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Enumeration;
 import java.util.List;
 
 @WebServlet(name = "Experience", urlPatterns = {"/experience"})
@@ -22,52 +20,84 @@ public class Experience extends HttpServlet {
         if (request.getSession().getAttribute("user") != null) {
             if (request.getParameter("experience") != null && request.getParameter("organization") != null && request.getParameter("city") != null && request.getParameter("start") != null) {
 
-                com.cvbuilder.entity.Experience newExperience = new com.cvbuilder.entity.Experience();
+                com.cvbuilder.entity.Experience newExperience = null;
                 User user = (User) request.getSession().getAttribute("user");
                 EntityManager entityManager = DB.getEntityManager();
 
-                System.out.println(request.getParameter("update"));
+                String experience = request.getParameter("experience");
+                String organization = request.getParameter("organization");
+                String city = request.getParameter("city");
+                String start = request.getParameter("start");
+                String end = request.getParameter("end");
+                String description = request.getParameter("description");
 
-                if (!request.getParameter("update").equals("true")) {
+                if (!request.getParameter("update").equals("false")) {
+                    newExperience = entityManager.find(com.cvbuilder.entity.Experience.class, Long.parseLong(request.getParameter("update")));
+                    if (newExperience != null) {
 
-                }
+                        if (!newExperience.getExperience().equals(experience))
+                            newExperience.setExperience(experience);
 
-                newExperience.setExperience(request.getParameter("experience"));
-                newExperience.setOrganization(request.getParameter("organization"));
-                newExperience.setCity(request.getParameter("city"));
-                newExperience.setStart(Helpers.parseDateFromParameter(request.getParameter("start")));
-                newExperience.setUser(user);
+                        if (!newExperience.getOrganization().equals(organization))
+                            newExperience.setOrganization(organization);
 
-                System.out.println(request.getParameter("end"));
+                        if (!newExperience.getCity().equals(city))
+                            newExperience.setCity(city);
 
-                if (request.getParameter("end") != null)
-                    newExperience.setEnd(Helpers.parseDateFromParameter(request.getParameter("end")));
+                        if (!newExperience.getStart().equals(Helpers.parseDateFromParameter(start)))
+                            newExperience.setStart(Helpers.parseDateFromParameter(start));
 
-                if (request.getParameter("description") != null)
-                    newExperience.setDescription(request.getParameter("description"));
+                        if (end != null && !end.isEmpty())
+                            newExperience.setEnd(Helpers.parseDateFromParameter(end));
 
-                entityManager.getTransaction().begin();
-                boolean transactionOk = false;
-                try {
-                    entityManager.persist(newExperience);
-                    transactionOk = true;
-                } catch (PersistenceException ex) {
-                    //Todo: Get Cause (ex: Email in database already exist !)
-                    ex.printStackTrace();
-                } finally {
-                    if (transactionOk) {
-                        entityManager.getTransaction().commit();
-                        response.sendRedirect(request.getContextPath() + "/experience");
+                        if (description != null && !description.isEmpty())
+                            newExperience.setDescription(description);
+
+                        entityManager.getTransaction().begin();
+                        try {
+                            entityManager.getTransaction().commit();
+                            response.sendRedirect(request.getContextPath() + "/experience");
+                        } catch (RuntimeException e) {
+                            entityManager.getTransaction().rollback();
+                        }
+                        entityManager.close();
                     } else {
-                        entityManager.getTransaction().rollback();
-                        //TODO: Send error !
-                        response.sendRedirect(request.getContextPath() + "/experience");
+                        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                     }
-                    entityManager.close();
+                } else {
+                    newExperience = new com.cvbuilder.entity.Experience();
+
+                    newExperience.setExperience(experience);
+                    newExperience.setOrganization(organization);
+                    newExperience.setCity(city);
+                    newExperience.setStart(Helpers.parseDateFromParameter(start));
+                    newExperience.setUser(user);
+
+                    if (end != null)
+                        newExperience.setEnd(Helpers.parseDateFromParameter(end));
+
+                    if (description != null)
+                        newExperience.setDescription(description);
+
+                    entityManager.getTransaction().begin();
+                    boolean transactionOk = false;
+                    try {
+                        entityManager.persist(newExperience);
+                        transactionOk = true;
+                    } catch (PersistenceException ex) {
+                        ex.printStackTrace();
+                    } finally {
+                        if (transactionOk) {
+                            entityManager.getTransaction().commit();
+                            response.sendRedirect(request.getContextPath() + "/experience");
+                        } else {
+                            entityManager.getTransaction().rollback();
+                            response.setStatus(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
+                        }
+                        entityManager.close();
+                    }
                 }
             } else {
-                System.out.println("Not all attributes");
-                //TODO: Send all attributes is not complete !
                 response.sendRedirect(request.getContextPath() + "/experience");
             }
         } else {
