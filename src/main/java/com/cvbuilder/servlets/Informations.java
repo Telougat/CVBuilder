@@ -29,7 +29,7 @@ public class Informations extends HttpServlet {
             }
             if(request.getParameter("birth") != null)
             {
-                newUser.setBirth(request.getParameter("birth"));
+                //newUser.setBirth(request.getParameter("birth"));
             }
 
         }
