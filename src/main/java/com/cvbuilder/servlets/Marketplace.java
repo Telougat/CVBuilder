@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "Market", urlPatterns = {"/Boutique"})
+@WebServlet(name = "Market", urlPatterns = {"/marketplace"})
 public class Marketplace extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        String search = request.getParameter("search");
