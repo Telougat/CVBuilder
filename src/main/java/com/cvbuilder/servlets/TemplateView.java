@@ -17,8 +17,7 @@ public class TemplateView extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Ko");
-        if(request.getParameter("id") != null) {
+
             System.out.println("OK");
             com.cvbuilder.entity.Template template = null;
             EntityManager entityManager = DB.getEntityManager();
@@ -27,4 +26,3 @@ public class TemplateView extends HttpServlet {
             this.getServletContext().getRequestDispatcher("/view/template.jsp").forward(request, response);
         }
     }
-}
