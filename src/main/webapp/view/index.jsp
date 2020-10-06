@@ -12,23 +12,23 @@
 <p:page>
     <jsp:body>
         <div class="relative">
-            <div class="flex flex-wrap justify-between items-center p-12 border-solid border-b-8 border-blue-600 lg:border-0 lg:p-0">
-                <a href="/" class="flex flex-wrap w-1/6 lg:w-1/12 lg:hidden">
+            <div class="flex flex-wrap justify-between items-center p-12 border-solid border-b-8 border-blue-600 lg:hidden">
+                <a href="/" class="flex flex-wrap w-1/6 lg:w-1/12">
                     <img class="w-full" src="${pageContext.request.contextPath}/resources/images/cv.svg" alt="CV">
                 </a>
-                <div class="flex flex-wrap h-full lg:absolute">
+                <div class="flex h-full">
                     <button class="pl-4 pr-5 pt-2 pb-2 border-solid border-4 border-blue-400 text-blue-400 text-3xl lg:text-xl">Déconnexion</button>
                 </div>
             </div>
             <div class="flex flex-wrap h-full relative">
+                <div class="hidden lg:block absolute top-0 right-0">
+                    <button class="pl-4 pr-5 pt-2 pb-2 border-solid border-4 border-blue-200 hover:bg-white hover:text-blue-200 hover:border-blue-200 hover:shadow-lg text-blue-200 text-md mt-4 mr-4">Déconnexion</button>
+                </div>
 
-                <a href="/" class="flex hidden lg:block absolute justify-center w-full h-full">
-                    <img class="w-1/12" src="${pageContext.request.contextPath}/resources/images/cv.svg" alt="CV">
-                </a>
 
-                <a href="#" class="flex flex-wrap w-full lg:w-1/2 bg-blue-300 text-6xl lg:text-3xl p-16 font-semibold text-center">
+                <a href="#" class="animHome cursor-pointer flex flex-wrap w-full lg:w-1/2 bg-blue-300 text-6xl lg:text-3xl p-16 font-semibold text-center">
                     <div class="w-full">
-                        <svg class="informations w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        <svg class="informations fill-current text-blue-200 w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><g><path d="M256.002,182.774c-12.718,0-21.761,5.37-21.761,13.283V303.73c0,6.782,9.044,13.565,21.761,13.565
                                             c12.152,0,22.043-6.783,22.043-13.565V196.057C278.045,188.144,268.154,182.774,256.002,182.774z"/><path d="M256.002,116.361c-13,0-23.174,9.326-23.174,20.065c0,10.739,10.174,20.348,23.174,20.348
                                             c12.718,0,22.892-9.609,22.892-20.348C278.894,125.688,268.719,116.361,256.002,116.361z"/><path d="M256,0C134.398,0,36,98.348,36,219.873c0,99.231,65.333,181.626,153.417,209.609l50.032,73.747
@@ -44,9 +44,9 @@
                 </a>
 
 
-                <a href="#" class="flex flex-wrap w-full lg:w-1/2 bg-blue-400 text-6xl lg:text-3xl p-16 font-semibold text-center">
+                <a href="#" class="animHome flex flex-wrap cursor-pointer w-full lg:w-1/2 bg-blue-400 text-6xl lg:text-3xl p-16 font-semibold text-center">
                     <div class="w-full">
-                        <svg class="createCV w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        <svg class="createCV fill-current text-blue-200 w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M414.007,148.75c5.522,0,10-4.477,10-10V30c0-16.542-13.458-30-30-30h-364c-16.542,0-30,13.458-30,30v452
                 c0,16.542,13.458,30,30,30h364c16.542,0,30-13.458,30-30v-73.672c0-5.523-4.478-10-10-10c-5.522,0-10,4.477-10,10V482
                 c0,5.514-4.486,10-10,10h-364c-5.514,0-10-4.486-10-10V30c0-5.514,4.486-10,10-10h364c5.514,0,10,4.486,10,10v108.75
@@ -79,9 +79,9 @@
                 </a>
 
 
-                <a href="#" class="flex flex-wrap w-full lg:w-1/2 bg-blue-200 text-6xl lg:text-3xl p-16 font-semibold text-center">
+                <a href="#" class="animHome flex flex-wrap cursor-pointer w-full lg:w-1/2 bg-blue-200 text-6xl lg:text-3xl p-16 font-semibold text-center">
                     <div class="w-full">
-                        <svg class="gallery w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        <svg class="gallery fill-current text-blue-300 w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 430.23 430.23" style="enable-background:new 0 0 430.23 430.23;" xml:space="preserve">
                                             <g>
                                                 <g>
@@ -138,9 +138,9 @@
                 </a>
 
 
-                <a href="#" class="flex flex-wrap w-full lg:w-1/2 bg-blue-100 text-6xl lg:text-3xl p-16 font-semibold text-center">
+                <a href="#" class="animHome flex flex-wrap cursor-pointer w-full lg:w-1/2 bg-blue-100 text-6xl lg:text-3xl p-16 font-semibold text-center">
                     <div class="w-full">
-                        <svg class="shop w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        <svg class="shop fill-current text-blue-300 w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 424.449 424.449" style="enable-background:new 0 0 424.449 424.449;" xml:space="preserve"><g><g><g><circle cx="170.241" cy="374.273" r="50.176"/>
                             <path d="M316.673,324.098L316.673,324.098c-27.711,0-50.176,22.465-50.176,50.176s22.465,50.176,50.176,50.176
                                 c27.711,0,50.176-22.465,50.176-50.176S344.384,324.098,316.673,324.098z"/>
