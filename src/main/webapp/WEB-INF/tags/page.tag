@@ -4,6 +4,7 @@
 <head>
     <title>CVBuilder</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/index.css" rel="stylesheet">
 </head>
 <body>
 
