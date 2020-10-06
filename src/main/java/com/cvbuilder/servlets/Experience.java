@@ -24,7 +24,13 @@ public class Experience extends HttpServlet {
 
                 com.cvbuilder.entity.Experience newExperience = new com.cvbuilder.entity.Experience();
                 User user = (User) request.getSession().getAttribute("user");
+                EntityManager entityManager = DB.getEntityManager();
 
+                System.out.println(request.getParameter("update"));
+
+                if (!request.getParameter("update").equals("true")) {
+
+                }
 
                 newExperience.setExperience(request.getParameter("experience"));
                 newExperience.setOrganization(request.getParameter("organization"));
@@ -32,13 +38,14 @@ public class Experience extends HttpServlet {
                 newExperience.setStart(Helpers.parseDateFromParameter(request.getParameter("start")));
                 newExperience.setUser(user);
 
+                System.out.println(request.getParameter("end"));
+
                 if (request.getParameter("end") != null)
                     newExperience.setEnd(Helpers.parseDateFromParameter(request.getParameter("end")));
 
                 if (request.getParameter("description") != null)
                     newExperience.setDescription(request.getParameter("description"));
 
-                EntityManager entityManager = DB.getEntityManager();
                 entityManager.getTransaction().begin();
                 boolean transactionOk = false;
                 try {
@@ -71,16 +78,32 @@ public class Experience extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        super.doDelete(request, response);
         if (request.getSession().getAttribute("user") != null) {
             User user = (User) request.getSession().getAttribute("user");
-            int id = Integer.parseInt(request.getParameter("id"));
+            Long id = Long.parseLong(request.getParameter("id"));
 
             EntityManager entityManager = DB.getEntityManager();
             com.cvbuilder.entity.Experience exp = entityManager.find(com.cvbuilder.entity.Experience.class, id);
 
-
-            System.out.println(exp);
+            if (exp != null) {
+                if (user.getId().equals(exp.getUser().getId())) {
+                    entityManager.remove(exp);
+                    entityManager.getTransaction().begin();
+                    try {
+                        entityManager.getTransaction().commit();
+                        response.setStatus(HttpServletResponse.SC_OK);
+                    } catch (RuntimeException e) {
+                        entityManager.getTransaction().rollback();
+                        response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
+                    }
+                    entityManager.close();
+                }
+                else {
+                    response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                }
+            } else {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            }
         } else {
             response.sendRedirect(request.getContextPath() + "/login");
         }
