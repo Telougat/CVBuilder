@@ -33,21 +33,31 @@ public class Informations extends HttpServlet {
 
             if(request.getParameter("address") != null)
             {
-                updateUser.setAddress(request.getParameter("address"));
+                if(request.getParameter("address") != user.getAddress())
+                {
+                    updateUser.setAddress(request.getParameter("address"));
+                }
             }
             if(request.getParameter("phone") != null)
             {
-                updateUser.setPhone(request.getParameter("phone"));
+                if(request.getParameter("phone") != user.getPhone())
+                {
+                    updateUser.setPhone(request.getParameter("phone"));
+                }
             }
             if(request.getParameter("birth") != null)
             {
-                updateUser.setBirth(Helpers.parseDateFromParameter(request.getParameter("birth")));
+                if(Helpers.parseDateFromParameter(request.getParameter("birth")) != user.getBirth())
+                {
+                    updateUser.setBirth(Helpers.parseDateFromParameter(request.getParameter("birth")));
+                }
             }
 
             entityManager.getTransaction().begin();
             try {
                 entityManager.getTransaction().commit();
                 request.getSession().setAttribute("user",updateUser);
+                response.sendRedirect(request.getContextPath() + "/experience");
             } catch (RuntimeException e) {
                 entityManager.getTransaction().rollback();
             }
@@ -59,9 +69,15 @@ public class Informations extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         if (session.getAttribute("user") != null) {
-            this.getServletContext().getRequestDispatcher("/view/informations.jsp").forward(request, response);
             User user = (User) request.getSession().getAttribute("user");
-            request.setAttribute("nom", user.getLast_name());
+            request.setAttribute("last_name", user.getLast_name());
+            request.setAttribute("first_name", user.getFirst_name());
+            request.setAttribute("email", user.getEmail());
+            request.setAttribute("address", user.getAddress());
+            request.setAttribute("phone", user.getPhone());
+            request.setAttribute("birth", user.getBirth());
+
+            this.getServletContext().getRequestDispatcher("/view/informations.jsp").forward(request, response);
         } else {
             response.sendRedirect(request.getContextPath() + "/login");
         }

@@ -19,25 +19,25 @@
                     <div class="w-full flex flex-wrap">
                         <div class="w-1/2">
                             <div class="w-full text-blue-400 font-semibold"  for="last_name">Nom :</div>
-                            <input id="last_name" name="last_name" type="text" value="${nom}" class="border-solid border-2 border-blue-300 hover:border-blue-100 focus:border-blue-100 mt-4 w-2/3 rounded-md"/>
+                            <input id="last_name" name="last_name" type="text" value="${last_name}" class="border-solid border-2 border-blue-300 hover:border-blue-100 focus:border-blue-100 mt-4 w-2/3 rounded-md"/>
                         </div>
                         <div class="w-1/2">
                             <div class="w-full text-blue-400 font-semibold" for="first_name">Prénom :</div>
-                            <input id="first_name" name="first_name" type="text" class="border-solid border-2 border-blue-300 hover:border-blue-100 focus:border-blue-100 mt-4 w-2/3 rounded-md"/>
+                            <input id="first_name" name="first_name" type="text" value="${first_name}" class="border-solid border-2 border-blue-300 hover:border-blue-100 focus:border-blue-100 mt-4 w-2/3 rounded-md"/>
                         </div>
                     </div>
                     <div class="mt-4 text-blue-400 font-semibold" for="email">E-mail :</div>
-                    <input id="email" name="email" type="text" class="border-solid border-2 border-blue-300 hover:border-blue-100 focus:border-blue-100 mt-4 w-5/6 rounded-md"/>
+                    <input id="email" name="email" type="text" value="${email}" class="border-solid border-2 border-blue-300 hover:border-blue-100 focus:border-blue-100 mt-4 w-5/6 rounded-md"/>
                     <div class="mt-4 italic text-blue-400 font-semibold" for="address">Adresse (facultatif):</div>
-                    <input id="address" name="address" type="text" class="border-solid border-2 border-blue-300 hover:border-blue-100 focus:border-blue-100 mt-4 w-5/6 rounded-md"/>
+                    <input id="address" name="address" type="text" value="${address}" class="border-solid border-2 border-blue-300 hover:border-blue-100 focus:border-blue-100 mt-4 w-5/6 rounded-md"/>
                     <div class="w-full flex flex-wrap mt-4">
                         <div class="w-1/2">
                             <div class="w-full italic text-blue-400 font-semibold" for="phone">Téléphone (facultatif):</div>
-                            <input type="text" id="phone" name="phone" class="border-solid border-2 border-blue-300 hover:border-blue-100 focus:border-blue-100 mt-4 w-2/3 rounded-md"/>
+                            <input type="text" id="phone" name="phone" value="${phone}" maxlength="10" class="border-solid border-2 border-blue-300 hover:border-blue-100 focus:border-blue-100 mt-4 w-2/3 rounded-md"/>
                         </div>
                         <div class="w-1/2">
                             <div class="w-full italic text-blue-400 font-semibold" for="birth">Date de naissance (facultatif):</div>
-                            <input type="date" id="birth" name="birth" class="border-solid border-2 border-blue-300 hover:border-blue-100 focus:border-blue-100 mt-4 w-2/3 rounded-md"/>
+                            <input type="date" id="birth" name="birth" value="${birth}" class="border-solid border-2 border-blue-300 hover:border-blue-100 focus:border-blue-100 mt-4 w-2/3 rounded-md"/>
                         </div>
                     </div>
 
@@ -74,5 +74,27 @@
             </form>
         </div>
 
+        <script>
+            function setInputFilter(textbox, inputFilter) {
+                ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+                    textbox.addEventListener(event, function() {
+                        if (inputFilter(this.value)) {
+                            this.oldValue = this.value;
+                            this.oldSelectionStart = this.selectionStart;
+                            this.oldSelectionEnd = this.selectionEnd;
+                        } else if (this.hasOwnProperty("oldValue")) {
+                            this.value = this.oldValue;
+                            this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                        } else {
+                            this.value = "";
+                        }
+                    });
+                });
+            }
+
+            setInputFilter(document.getElementById("phone"), function(value) {
+                return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+            });
+        </script>
     </jsp:body>
 </p:infos>
