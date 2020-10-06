@@ -4,6 +4,7 @@
 <head>
     <title>CVBuilder</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/competences.css" rel="stylesheet">
 </head>
 <body>
 <header class="w-full flex justify-end pb-32 pt-8 pr-6 uppercase space-x-10 text-blue-400 font-semibold">

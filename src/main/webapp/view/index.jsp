@@ -13,20 +13,20 @@
     <jsp:body>
         <div class="relative">
             <div class="flex flex-wrap justify-between items-center p-12 border-solid border-b-8 border-blue-600 lg:hidden">
-                <a href="/" class="flex flex-wrap w-1/6 lg:w-1/12">
+                <a href="#" class="flex flex-wrap w-1/6 lg:w-1/12">
                     <img class="w-full" src="${pageContext.request.contextPath}/resources/images/cv.svg" alt="CV">
                 </a>
                 <div class="flex h-full">
-                    <button class="pl-4 pr-5 pt-2 pb-2 border-solid border-4 border-blue-400 text-blue-400 text-3xl lg:text-xl">Déconnexion</button>
+                    <a href="${pageContext.request.contextPath}/logout" class="pl-4 pr-5 pt-2 pb-2 border-solid border-4 border-blue-400 text-blue-400 text-3xl lg:text-xl">Déconnexion</a>
                 </div>
             </div>
             <div class="flex flex-wrap h-full relative">
-                <div class="hidden lg:block absolute top-0 right-0">
-                    <button class="pl-4 pr-5 pt-2 pb-2 border-solid border-4 border-blue-200 hover:bg-white hover:text-blue-200 hover:border-blue-200 hover:shadow-lg text-blue-200 text-md mt-4 mr-4">Déconnexion</button>
+                <div class="hidden lg:block absolute top-0 right-0 pt-8">
+                    <a href="${pageContext.request.contextPath}/logout" class="pl-4 pr-5 pt-2 pb-2 border-solid border-4 border-blue-200 hover:bg-white hover:text-blue-200 hover:border-blue-200 hover:shadow-lg text-blue-200 text-md mt-4 mr-4">Déconnexion</a>
                 </div>
 
 
-                <a href="#" class="animHome cursor-pointer flex flex-wrap w-full lg:w-1/2 bg-blue-300 text-6xl lg:text-3xl p-16 font-semibold text-center">
+                <a href="${pageContext.request.contextPath}/informations" class="animHome cursor-pointer flex flex-wrap w-full lg:w-1/2 bg-blue-300 text-6xl lg:text-3xl p-16 font-semibold text-center">
                     <div class="w-full">
                         <svg class="informations fill-current text-blue-200 w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><g><path d="M256.002,182.774c-12.718,0-21.761,5.37-21.761,13.283V303.73c0,6.782,9.044,13.565,21.761,13.565
