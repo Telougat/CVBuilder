@@ -60,24 +60,24 @@
             </div>
 
             <div class="flex justify-center mt-16 space-x-4">
-                <div>
+                <a href="${pageContext.request.contextPath}/informations">
                     <div class="flex justify-center mb-2">
                         <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                     </div>
                     <p>Informations<br/>personnelles</p>
-                </div>
-                <div>
+                </a>
+                <a href="${pageContext.request.contextPath}/experience">
                     <div class="flex justify-center mb-2">
                         <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                     </div>
                     <p>Études</p>
-                </div>
-                <div>
+                </a>
+                <a href="${pageContext.request.contextPath}/job">
                     <div class="flex justify-center mb-2">
                         <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                     </div>
                     <p>Expériences</p>
-                </div>
+                </a>
                 <div>
                     <div class="flex justify-center mb-2">
                         <div class="h-5 w-5 rounded-full bg-blue-400 border border-blue-400"></div>

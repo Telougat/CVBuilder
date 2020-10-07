@@ -10,7 +10,7 @@
                     <div class="skill">
                         <p class="name">${skill.getSkill()}</p>
                         <p class="level">${skill.getLevel()}</p>
-                        <p class="description">${skill.getDescription}</p>
+                        <p class="description">${skill.getDescription()}</p>
                     </div>
                 </c:forEach>
             </div>
