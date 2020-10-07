@@ -138,7 +138,7 @@
                 </a>
 
 
-                <a href="#" class="animHome flex flex-wrap cursor-pointer w-full lg:w-1/2 bg-blue-100 text-6xl lg:text-3xl p-16 font-semibold text-center">
+                <a href="${pageContext.request.contextPath}/marketplace" class="animHome flex flex-wrap cursor-pointer w-full lg:w-1/2 bg-blue-100 text-6xl lg:text-3xl p-16 font-semibold text-center">
                     <div class="w-full">
                         <svg class="shop fill-current text-blue-300 w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 424.449 424.449" style="enable-background:new 0 0 424.449 424.449;" xml:space="preserve"><g><g><g><circle cx="170.241" cy="374.273" r="50.176"/>
