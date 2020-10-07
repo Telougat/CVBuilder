@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="p" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -14,26 +14,17 @@
                         <th class="font-medium border-solid border-l border-gray-500 pl-4 pt-2 pb-3">Niveau</th>
                         <th class="font-medium border-solid border-l border-gray-500 pl-4 pt-2 pb-3">Description</th>
                     </tr>
-
-                    <tr class="border-solid border-l border-r border-b border-gray-500">
-                        <td class="pt-3 pb-3 pr-3 pl-4">JavaScript</td>
+                    <c:forEach items="${skills}" var="skill">
+                    <tr id="skill-${skill.getId()}" class="item border-solid border-l border-r border-b border-gray-500">
+                        <td class="skill pt-3 pb-3 pr-3 pl-4">${skill.getSkill()}</td>
                         <td class="pt-3 pb-3 pr-3 pl-4">
                             <section class="w-full">
-                                <progress value="8" max="10">Javascript</progress>
+                                <progress value="${skill.getLevel()}" max="10">${skill.getSkill()}</progress>
                             </section>
                         </td>
-                        <td class="pt-3 pb-3 pr-3 pl-4">Langue JS natif</td>
+                        <td class="description pt-3 pb-3 pr-3 pl-4">${skill.getDescription()}</td>
                     </tr>
-                    <tr class="border-solid border-l border-r border-b border-gray-500">
-                        <td class="pt-3 pb-3 pr-3 pl-4">Cobble</td>
-                        <td class="pt-3 pb-3 pr-3 pl-4">
-                            <section class="w-full">
-                                <progress value="2" max="10">Javascript</progress>
-                            </section>
-                        </td>
-                        <td class="pt-3 pb-3 pr-3 pl-4">Langue bas niveau</td>
-                    </tr>
-
+                    </c:forEach>
                 </table>
             </div>
 
@@ -44,18 +35,18 @@
             </div>
 
             <div id="create" class="hidden">
-                <form method="post">
+                <form method="post" accept-charset="utf-8">
 
                     <input type="hidden" id="update" name="update" value="false">
 
                     <div class="mt-5">
-                        <label for="experience" class="text-xl text-blue-500">Titre :</label>
-                        <input class="w-full py-1 px-2 border border-gray-600 mt-3" type="text" id="experience" name="experience" required/>
+                        <label for="skill" class="text-xl text-blue-500">Titre :</label>
+                        <input class="w-full py-1 px-2 border border-gray-600 mt-3" type="text" id="skill" name="skill" required/>
                     </div>
 
                     <div class="mt-5">
-                        <label for="experience" class="text-xl text-blue-500">Niveau sur 10 :</label>
-                        <input class="w-1/12 py-1 px-2 border border-gray-600 mt-3" type="text" id="experience" name="experience" required/>
+                        <label for="level" class="text-xl text-blue-500">Niveau sur 10 (optionnel):</label>
+                        <input class="w-1/12 py-1 px-2 border border-gray-600 mt-3" type="text" id="level" name="level"/>
                     </div>
 
                     <div class="mt-5">
@@ -95,7 +86,7 @@
                 </div>
             </div>
             <div class="flex justify-center mt-10">
-                <a href="#" class="bg-blue-400 text-sm px-8 py-2 text-white rounded-lg font-semibold">Suivant</a>
+                <a href="${pageContext.request.contextPath}/" class="bg-blue-400 text-sm px-8 py-2 text-white rounded-lg font-semibold">Terminer</a>
             </div>
         </div>
 
@@ -114,24 +105,16 @@
                     if ($(".item.active").length <= 0) {
                         alert("Veuillez choisir un élement !");
                     } else {
-                        let exp = $(".item.active p.experience").text();
-                        let start = $(".item.active p.start").text();
-                        let end = $(".item.active p.end").text();
-                        let organization = $(".item.active p.organization").text();
-                        let city = $(".item.active p.city").text();
-                        let description = $(".item.active p.description").text();
+                        let skill = $(".item.active td.skill").text();
+                        let level = $(".item.active progress").val();
+                        let description = $(".item.active td.description").text();
 
                         let $inputs = $("form input");
 
-                        $inputs.eq(0).val("true");
-                        $inputs.eq(1).val(exp);
-                        $inputs.eq(2).val(start);
-                        if (end.length > 0)
-                            $inputs.eq(3).val(end);
-                        $inputs.eq(4).val(organization);
-                        $inputs.eq(5).val(city);
-                        if (description > 0)
-                            $("form textarea").val(description);
+                        $inputs.eq(0).val($(".item.active").attr('id').split('-')[1]);
+                        $inputs.eq(1).val(skill);
+                        $inputs.eq(2).val(level);
+                        $("form textarea").text(description);
 
                         $buttonAdd.click();
                     }

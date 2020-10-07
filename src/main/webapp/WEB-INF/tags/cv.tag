@@ -1,4 +1,4 @@
-<%@tag description="Page Template" pageEncoding="UTF-8" %>
+<%@ tag description="Page Template" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>

@@ -58,7 +58,7 @@ public class Template extends HttpServlet {
                             try {
                                 entityManager.getTransaction().commit();
                                 response.setStatus(HttpServletResponse.SC_OK);
-                                response.sendRedirect(request.getContextPath() + "/template");
+                                response.sendRedirect(request.getContextPath() + "/templates");
                             } catch (RuntimeException e) {
                                 entityManager.getTransaction().rollback();
                                 response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
@@ -92,7 +92,7 @@ public class Template extends HttpServlet {
                         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
                     }
                     entityManager.close();
-                    response.sendRedirect(request.getContextPath() + "/template");
+                    response.sendRedirect(request.getContextPath() + "/templates");
                 }
 
             } else {
