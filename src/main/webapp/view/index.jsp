@@ -74,7 +74,7 @@
                         </svg>
                     </div>
                     <div class="w-full -ml-5 text-blue-200">
-                        <p>CRÉER UN CV</p>
+                        <p>MES CV</p>
                     </div>
                 </a>
 
