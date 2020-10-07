@@ -2,10 +2,10 @@
 <%@ taglib prefix="p" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<p:pageWithHeader>
+<p:pageWithHeaderWithLogo>
     <jsp:body>
-        <div class="w-full min-h-full bg-svg bg-blue-500 flex justify-center items-center py-12">
-            <div class="p-4 bg-white h-full lg:w-1/2">
+        <div class="w-full min-h-full bg-svg bg-blue-500 flex justify-center items-center py-12 px-4 lg:px-0">
+            <div class="p-4 bg-white h-full w-full lg:w-1/2">
                 <h1 class="text-xl text-blue-500">Template</h1>
                 <hr class="border-b-4 border-blue-500 mt-2" />
                 <div id="list" class="lg:w-full">
@@ -136,4 +136,4 @@
             })
         </script>
     </jsp:body>
-</p:pageWithHeader>
+</p:pageWithHeaderWithLogo>

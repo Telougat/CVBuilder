@@ -130,7 +130,11 @@
 
             function initField($to, $from, tag, tagToReplace) {
                 $to.find(tag).html($from.find("." + tag).html());
-                replaceTag($to.find(tag), tagToReplace);
+                if (tagToReplace) {
+                    replaceTag($to.find(tag), tagToReplace);
+                } else {
+                    console.log("Non !");
+                }
             }
 
             function replaceTag($element, tag, classes) {

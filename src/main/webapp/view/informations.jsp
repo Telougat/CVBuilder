@@ -47,25 +47,25 @@
                         <div class="flex justify-center mb-2">
                             <div class="h-5 w-5 rounded-full border border-blue-400 bg-blue-400"></div>
                         </div>
-                        <p class="font-semibold">Informations<br/>personnelles</p>
+                        <p class="font-semibold hidden lg:block">Informations<br/>personnelles</p>
                     </div>
                     <a href="${pageContext.request.contextPath}/experience">
                         <div class="flex justify-center mb-2">
                             <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                         </div>
-                        <p>Études</p>
+                        <p class="hidden lg:block">Études</p>
                     </a>
                     <a href="${pageContext.request.contextPath}/job">
                         <div class="flex justify-center mb-2">
                             <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                         </div>
-                        <p>Expériences</p>
+                        <p class="hidden lg:block">Expériences</p>
                     </a>
                     <a href="${pageContext.request.contextPath}/competences">
                         <div class="flex justify-center mb-2">
                             <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                         </div>
-                        <p>Compétences</p>
+                        <p class="hidden lg:block">Compétences</p>
                     </a>
                 </div>
                 <div class="flex justify-center mt-10">

@@ -14,7 +14,8 @@
                             <div class="flex space-x-2">
                                 <p class="start">${experience.getStart()}</p>
                                 <c:if test="${experience.getEnd() != null}">
-                                    <p class="end"> - ${experience.getEnd()}</p>
+                                     <p> - </p>
+                                    <p class="end">${experience.getEnd()}</p>
                                 </c:if>
                                 <p class="experience">${experience.getExperience()}</p>
                             </div>
@@ -37,25 +38,25 @@
                             <div class="flex justify-center mb-2">
                                 <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                             </div>
-                            <p>Informations<br/>personnelles</p>
+                            <p class="hidden lg:block">Informations<br/>personnelles</p>
                         </a>
                         <div>
                             <div class="flex justify-center mb-2">
                                 <div class="h-5 w-5 rounded-full bg-blue-400 border border-blue-400"></div>
                             </div>
-                            <p class="font-semibold">Études</p>
+                            <p class="font-semibold hidden lg:block">Études</p>
                         </div>
                         <a href="${pageContext.request.contextPath}/job">
                             <div class="flex justify-center mb-2">
                                 <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                             </div>
-                            <p>Expériences</p>
+                            <p class="hidden lg:block">Expériences</p>
                         </a>
                         <a href="${pageContext.request.contextPath}/competences">
                             <div class="flex justify-center mb-2">
                                 <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                             </div>
-                            <p>Compétences</p>
+                            <p class="hidden lg:block">Compétences</p>
                         </a>
                     </div>
                     <div>

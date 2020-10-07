@@ -14,7 +14,8 @@
                             <div class="flex space-x-2">
                                 <p class="start">${job.getStart()}</p>
                                 <c:if test="${job.getEnd() != null}">
-                                    <p class="end"> - ${job.getEnd()}</p>
+                                    <p> - </p>
+                                    <p class="end">${job.getEnd()}</p>
                                 </c:if>
                                 <p class="job">${job.getJob()}</p>
                             </div>
@@ -37,25 +38,25 @@
                             <div class="flex justify-center mb-2">
                                 <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                             </div>
-                            <p>Informations<br/>personnelles</p>
+                            <p class="hidden lg:block">Informations<br/>personnelles</p>
                         </a>
                         <a href="${pageContext.request.contextPath}/experience">
                             <div class="flex justify-center mb-2">
                                 <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                             </div>
-                            <p>Études</p>
+                            <p class="hidden lg:block">Études</p>
                         </a>
                         <div>
                             <div class="flex justify-center mb-2">
                                 <div class="h-5 w-5 rounded-full bg-blue-400 border border-blue-400"></div>
                             </div>
-                            <p class="font-semibold">Expériences</p>
+                            <p class="font-semibold hidden lg:block">Expériences</p>
                         </div>
                         <a href="${pageContext.request.contextPath}/competences">
                             <div class="flex justify-center mb-2">
                                 <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                             </div>
-                            <p>Compétences</p>
+                            <p class="hidden lg:block">Compétences</p>
                         </a>
                     </div>
                     <div>

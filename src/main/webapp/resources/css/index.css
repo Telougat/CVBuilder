@@ -84,3 +84,18 @@ animation-duration: 25s;
 .button {
     box-shadow: 0px 0px 50px white;
 }
+
+header a {
+    position: relative;
+}
+
+header a.active:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 0.45rem;
+    bottom: 0;
+    left: 0;
+    margin-bottom: -0.75rem;
+    background-color: #B7E4F8;
+}
