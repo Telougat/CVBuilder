@@ -12,7 +12,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
 </head>
 <body>
-<img src="" alt="">
+<a href="${pageContext.request.contextPath}/">
+    <img class="absolute left-0 top-0 hidden lg:block lg:mt-6 lg:ml-10 lg:w-24 xl:w-32" src="${pageContext.request.contextPath}/resources/images/cv.svg" alt="CV" id="logoAppli">
+</a>
 <header class="w-full space-y-5 lg:space-y-0 lg:flex justify-end pb-32 pt-8 pr-6 uppercase space-x-10 text-blue-400 font-semibold">
     <div class="ml-10" data-aos="fade-down">
         <a href="${pageContext.request.contextPath}/informations" class="w-full ${pageContext.request.servletPath == "/view/informations.jsp" || pageContext.request.servletPath == "/view/competences.jsp" || pageContext.request.servletPath == "/view/infos_experience.jsp" || pageContext.request.servletPath == "/view/infos_job.jsp" ? 'active' : '' }">Mes informations</a>
