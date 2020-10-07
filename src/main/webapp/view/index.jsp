@@ -26,7 +26,7 @@
                 </div>
 
 
-                <a href="${pageContext.request.contextPath}/informations" class="animHome cursor-pointer flex flex-wrap w-full lg:w-1/2 bg-blue-300 text-6xl lg:text-3xl p-16 font-semibold text-center">
+                <a href="${pageContext.request.contextPath}/informations" class="animHome cursor-pointer flex flex-wrap w-full lg:w-1/2 bg-blue-300 lg:text-3xl p-16 font-semibold text-center">
                     <div class="w-full">
                         <svg class="informations fill-current text-blue-200 w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><g><path d="M256.002,182.774c-12.718,0-21.761,5.37-21.761,13.283V303.73c0,6.782,9.044,13.565,21.761,13.565
@@ -39,12 +39,12 @@
                         </svg>
                     </div>
                     <div class="w-full text-blue-200">
-                        <p>MES INFORMATIONS</p>
+                        <p class="text-3xl">MES INFORMATIONS</p>
                     </div>
                 </a>
 
 
-                <a href="${pageContext.request.contextPath}/templates" class="animHome flex flex-wrap cursor-pointer w-full lg:w-1/2 bg-blue-400 text-6xl lg:text-3xl p-16 font-semibold text-center">
+                <a href="${pageContext.request.contextPath}/templates" class="animHome flex flex-wrap cursor-pointer w-full lg:w-1/2 bg-blue-400 lg:text-3xl p-16 font-semibold text-center">
                     <div class="w-full">
                         <svg class="createCV fill-current text-blue-200 w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M414.007,148.75c5.522,0,10-4.477,10-10V30c0-16.542-13.458-30-30-30h-364c-16.542,0-30,13.458-30,30v452
@@ -74,7 +74,7 @@
                         </svg>
                     </div>
                     <div class="w-full -ml-5 text-blue-200">
-                        <p>CRÉER UN CV</p>
+                        <p class="text-3xl">MES CV</p>
                     </div>
                 </a>
 
@@ -139,7 +139,7 @@
                 </a>
 
 
-                <a href="${pageContext.request.contextPath}/marketplace" class="animHome flex flex-wrap cursor-pointer w-full lg:w-1/2 bg-blue-100 text-6xl lg:text-3xl p-16 font-semibold text-center">
+                <a href="${pageContext.request.contextPath}/marketplace" class="animHome flex flex-wrap cursor-pointer w-full lg:w-1/2 bg-blue-100 lg:text-3xl p-16 font-semibold text-center">
                     <div class="w-full">
                         <svg class="shop fill-current text-blue-300 w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 424.449 424.449" style="enable-background:new 0 0 424.449 424.449;" xml:space="preserve"><g><g><g><circle cx="170.241" cy="374.273" r="50.176"/>
@@ -154,7 +154,7 @@
 
                     </div>
                     <div class="w-full ml-6 text-blue-300">
-                        <p>BOUTIQUE</p>
+                        <p class="text-3xl">BOUTIQUE</p>
                     </div>
                 </a>
             </div>
