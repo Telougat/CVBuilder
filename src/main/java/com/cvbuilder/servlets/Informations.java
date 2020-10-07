@@ -70,12 +70,14 @@ public class Informations extends HttpServlet {
         HttpSession session = request.getSession();
         if (session.getAttribute("user") != null) {
             User user = (User) request.getSession().getAttribute("user");
-            request.setAttribute("last_name", user.getLast_name());
-            request.setAttribute("first_name", user.getFirst_name());
-            request.setAttribute("email", user.getEmail());
-            request.setAttribute("address", user.getAddress());
-            request.setAttribute("phone", user.getPhone());
-            request.setAttribute("birth", user.getBirth());
+            EntityManager entityManager = DB.getEntityManager();
+            User updateUser = entityManager.find(User.class,user.getId());
+            request.setAttribute("last_name", updateUser.getLast_name());
+            request.setAttribute("first_name", updateUser.getFirst_name());
+            request.setAttribute("email", updateUser.getEmail());
+            request.setAttribute("address", updateUser.getAddress());
+            request.setAttribute("phone", updateUser.getPhone());
+            request.setAttribute("birth", updateUser.getBirth());
 
             this.getServletContext().getRequestDispatcher("/view/informations.jsp").forward(request, response);
         } else {
