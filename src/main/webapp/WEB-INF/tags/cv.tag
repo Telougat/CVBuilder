@@ -1,6 +1,6 @@
 <%@ tag description="Page Template" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
+<html class="bg-gray-400">
 <head>
     <title>CVBuilder</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css"/>
