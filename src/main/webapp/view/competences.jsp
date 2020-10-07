@@ -14,26 +14,17 @@
                         <th class="font-medium border-solid border-l border-gray-500 pl-4 pt-2 pb-3">Niveau</th>
                         <th class="font-medium border-solid border-l border-gray-500 pl-4 pt-2 pb-3">Description</th>
                     </tr>
-
-                    <tr class="border-solid border-l border-r border-b border-gray-500">
-                        <td class="pt-3 pb-3 pr-3 pl-4">JavaScript</td>
+                    <c:forEach items="${skills}" var="skill">
+                    <tr id="skill-${skill.getId()}" class="item border-solid border-l border-r border-b border-gray-500">
+                        <td class="pt-3 pb-3 pr-3 pl-4">${skill.getSkill()}</td>
                         <td class="pt-3 pb-3 pr-3 pl-4">
                             <section class="w-full">
-                                <progress value="8" max="10">Javascript</progress>
+                                <progress value="${skill.getLevel()}" max="10">${skill.getSkill()}</progress>
                             </section>
                         </td>
-                        <td class="pt-3 pb-3 pr-3 pl-4">Langue JS natif</td>
+                        <td class="pt-3 pb-3 pr-3 pl-4">${skill.getDescription()}</td>
                     </tr>
-                    <tr class="border-solid border-l border-r border-b border-gray-500">
-                        <td class="pt-3 pb-3 pr-3 pl-4">Cobble</td>
-                        <td class="pt-3 pb-3 pr-3 pl-4">
-                            <section class="w-full">
-                                <progress value="2" max="10">Javascript</progress>
-                            </section>
-                        </td>
-                        <td class="pt-3 pb-3 pr-3 pl-4">Langue bas niveau</td>
-                    </tr>
-
+                    </c:forEach>
                 </table>
             </div>
 
@@ -49,13 +40,13 @@
                     <input type="hidden" id="update" name="update" value="false">
 
                     <div class="mt-5">
-                        <label for="experience" class="text-xl text-blue-500">Titre :</label>
-                        <input class="w-full py-1 px-2 border border-gray-600 mt-3" type="text" id="experience" name="experience" required/>
+                        <label for="skill" class="text-xl text-blue-500">Titre :</label>
+                        <input class="w-full py-1 px-2 border border-gray-600 mt-3" type="text" id="skill" name="skill" required/>
                     </div>
 
                     <div class="mt-5">
-                        <label for="experience" class="text-xl text-blue-500">Niveau sur 10 :</label>
-                        <input class="w-1/12 py-1 px-2 border border-gray-600 mt-3" type="text" id="experience" name="experience" required/>
+                        <label for="level" class="text-xl text-blue-500">Niveau sur 10 (optionnel):</label>
+                        <input class="w-1/12 py-1 px-2 border border-gray-600 mt-3" type="text" id="level" name="level"/>
                     </div>
 
                     <div class="mt-5">
