@@ -74,12 +74,12 @@
                         </svg>
                     </div>
                     <div class="w-full -ml-5 text-blue-200">
-                        <p>CRÉER UN CV</p>
+                        <p>MES CV</p>
                     </div>
                 </a>
 
 
-                <a href="#" class="animHome flex flex-wrap cursor-pointer w-full lg:w-1/2 bg-blue-200 text-6xl lg:text-3xl p-16 font-semibold text-center">
+                <a class="animHome flex flex-wrap cursor-pointer w-full lg:w-1/2 bg-blue-200 lg:text-3xl p-16 font-semibold text-center">
                     <div class="w-full">
                         <svg class="gallery fill-current text-blue-300 w-1/4 ml-auto mr-auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 430.23 430.23" style="enable-background:new 0 0 430.23 430.23;" xml:space="preserve">
@@ -133,7 +133,8 @@
                         </svg>
                     </div>
                     <div class="w-full text-blue-300">
-                        <p>GALERIE</p>
+                        <p class="text-3xl">GALERIE</p>
+                        <p class="text-xl">(In comming)</p>
                     </div>
                 </a>
 

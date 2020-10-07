@@ -10,9 +10,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
 </head>
 <body>
-<header class="w-full flex justify-end pb-32 pt-8 pr-6 uppercase space-x-10 text-blue-400 font-semibold">
+<header class="w-full flex justify-end pb-3 pt-8 pr-6 uppercase space-x-10 text-blue-400 font-semibold">
     <a href="${pageContext.request.contextPath}/informations" class="${pageContext.request.servletPath == "/view/infos_experience.jsp" ? 'active' : '' }">Mes informations</a>
-    <a href="${pageContext.request.contextPath}/">Créer un cv</a>
+    <a href="${pageContext.request.contextPath}/templates">Mes CV</a>
     <a href="${pageContext.request.contextPath}/">Ma galerie</a>
     <a href="${pageContext.request.contextPath}/marketplace" class="${pageContext.request.servletPath == "/view/marketplace.jsp" ? 'active' : '' }">Boutique</a>
     <a href="${pageContext.request.contextPath}/logout">Deconnexion</a>

@@ -102,6 +102,8 @@
                     $create.find("#label").val($this.find(".label").text());
                     $create.find("#code").val($this.find(".code").text());
                     $create.find("#price").val($this.find(".price").text());
+                    if ($this.find(".isPublic").text() === "true")
+                        $create.find("#isPublic").attr("checked", "");
 
                     $buttonAdd.click();
                 })
