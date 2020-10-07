@@ -27,7 +27,7 @@ public class TemplateView extends HttpServlet {
             if (request.getParameter("id") != null && ! request.getParameter("id").isEmpty()) {
                 Long id = Long.parseLong(request.getParameter("id"));
                 EntityManager entityManager1 = DB.getEntityManager();
-                User user = entityManager1.find(User.class, Long.parseLong(String.valueOf(2)));
+                User user = entityManager1.find(User.class, Long.parseLong(String.valueOf(1)));
                 com.cvbuilder.entity.Template template = null;
                 EntityManager entityManager = DB.getEntityManager();
 
