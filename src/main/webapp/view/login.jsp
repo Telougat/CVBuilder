@@ -9,7 +9,7 @@
                 <div class="flex w-full h-full pt-16 pb-20 items-center justify-center">
                     <div class="flex items-center">
                         <img class="mr-6 lg:w-40 xl:w-48" src="${pageContext.request.contextPath}/resources/images/cv.svg" alt="CV">
-                        <div class="leading-none text-white mt-0">
+                        <div class="leading-none text-white mt-0" data-aos="fade-left">
                             <h1 class="font-bold text-4xl xl:text-6xl">CVBuilder</h1>
                             <h2 class="text-center text-2xl xl:text-4xl">Créez vos CV facilement !</h2>
                         </div>

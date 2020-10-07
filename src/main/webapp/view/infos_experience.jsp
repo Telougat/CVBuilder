@@ -27,7 +27,7 @@
                     </c:forEach>
                 </div>
                 <div class="flex w-full justify-end mt-2 space-x-2">
-                    <div id="edit" class="w-8 h-8 border border-gray-600 flex items-center justify-center cursor-pointer">+</div>
+                    <div id="edit" class="w-8 h-8 border border-gray-600 flex items-center justify-center cursor-pointer"><img src="${pageContext.request.contextPath}/resources/images/edit.png" alt="Edit"/></div>
                     <div id="add" class="w-8 h-8 border border-gray-600 flex items-center justify-center cursor-pointer">+</div>
                     <div id="remove" class="w-8 h-8 border border-gray-600 flex items-center justify-center cursor-pointer">-</div>
                 </div>
