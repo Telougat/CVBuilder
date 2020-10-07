@@ -14,7 +14,7 @@
     <a href="${pageContext.request.contextPath}/informations" class="${pageContext.request.servletPath == "/view/infos_experience.jsp" ? 'active' : '' }">Mes informations</a>
     <a href="${pageContext.request.contextPath}/">Créer un cv</a>
     <a href="${pageContext.request.contextPath}/">Ma galerie</a>
-    <a href="${pageContext.request.contextPath}/Boutique" class="${pageContext.request.servletPath == "/view/marketplace.jsp" ? 'active' : '' }">Boutique</a>
+    <a href="${pageContext.request.contextPath}/marketplace" class="${pageContext.request.servletPath == "/view/marketplace.jsp" ? 'active' : '' }">Boutique</a>
     <a href="${pageContext.request.contextPath}/logout">Deconnexion</a>
 </header>
 <div id="body">

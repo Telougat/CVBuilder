@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "template", urlPatterns = {"/template"})
+@WebServlet(name = "temp", urlPatterns = {"/templateview"})
 public class TemplateView extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -21,6 +21,6 @@ public class TemplateView extends HttpServlet {
             EntityManager entityManager = DB.getEntityManager();
             template = entityManager.find(com.cvbuilder.entity.Template.class, Long.parseLong(request.getParameter("id")));
             request.setAttribute("template", template);
-            this.getServletContext().getRequestDispatcher("/view/template.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/view/templateview.jsp").forward(request, response);
         }
     }
