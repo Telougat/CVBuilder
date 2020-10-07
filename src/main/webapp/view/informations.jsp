@@ -49,27 +49,27 @@
                         </div>
                         <p class="font-semibold">Informations<br/>personnelles</p>
                     </div>
-                    <div>
+                    <a href="${pageContext.request.contextPath}/experience">
                         <div class="flex justify-center mb-2">
                             <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                         </div>
                         <p>Études</p>
-                    </div>
-                    <div>
+                    </a>
+                    <a href="${pageContext.request.contextPath}/job">
                         <div class="flex justify-center mb-2">
                             <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                         </div>
                         <p>Expériences</p>
-                    </div>
-                    <div>
+                    </a>
+                    <a href="${pageContext.request.contextPath}/competences">
                         <div class="flex justify-center mb-2">
                             <div class="h-5 w-5 rounded-full border border-blue-400"></div>
                         </div>
                         <p>Compétences</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="flex justify-center mt-10">
-                    <input type='submit' name="submit" value="Suivant" href="${pageContext.request.contextPath}/job" class="bg-blue-400 text-sm px-8 py-2 text-white rounded-lg font-semibold"/>
+                    <input type='submit' name="submit" value="Suivant" href="${pageContext.request.contextPath}/job" class="cursor-pointer bg-blue-400 text-sm px-8 py-2 text-white rounded-lg font-semibold"/>
                 </div>
             </form>
         </div>
