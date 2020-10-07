@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>CVBuilder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css"/>
     <link href="${pageContext.request.contextPath}/resources/css/competences.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/index.css" rel="stylesheet">
