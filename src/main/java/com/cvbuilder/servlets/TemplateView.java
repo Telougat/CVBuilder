@@ -17,8 +17,6 @@ public class TemplateView extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-            System.out.println("OK");
             com.cvbuilder.entity.Template template = null;
             EntityManager entityManager = DB.getEntityManager();
             template = entityManager.find(com.cvbuilder.entity.Template.class, Long.parseLong(request.getParameter("id")));
