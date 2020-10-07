@@ -41,6 +41,7 @@ public class CVGeneration extends HttpServlet {
                         request.setAttribute("skills", skills);
                         request.setAttribute("experiences", experiences);
                         request.setAttribute("code", template.getCode());
+                        entityManager.close();
                         this.getServletContext().getRequestDispatcher("/view/cv_processor.jsp").forward(request, response);
                     } else {
                         response.setStatus(HttpServletResponse.SC_FORBIDDEN);

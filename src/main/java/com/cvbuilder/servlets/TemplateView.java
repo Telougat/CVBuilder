@@ -26,15 +26,14 @@ public class TemplateView extends HttpServlet {
         if (request.getSession().getAttribute("user") != null) {
             if (request.getParameter("id") != null && ! request.getParameter("id").isEmpty()) {
                 Long id = Long.parseLong(request.getParameter("id"));
-                EntityManager entityManager1 = DB.getEntityManager();
-                User user = entityManager1.find(User.class, Long.parseLong(String.valueOf(1)));
+                User user = (User) request.getSession().getAttribute("user");
                 com.cvbuilder.entity.Template template = null;
                 EntityManager entityManager = DB.getEntityManager();
 
                 template = entityManager.find(Template.class, id);
 
                 if (template != null) {
-                    if (template.getCreator().getId().equals(user.getId())) {
+                    if (template.getCreator().getId().equals(user.getId()) || template.isPublic()) {
                         List<Job> jobs = user.getJobs();
                         List<Skill> skills = user.getSkills();
                         List<Experience> experiences = user.getExperiences();
@@ -43,6 +42,7 @@ public class TemplateView extends HttpServlet {
                         request.setAttribute("skills", skills);
                         request.setAttribute("experiences", experiences);
                         request.setAttribute("code", template.getCode());
+                        entityManager.close();
                         this.getServletContext().getRequestDispatcher("/view/cv_processor.jsp").forward(request, response);
                     } else {
                         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
